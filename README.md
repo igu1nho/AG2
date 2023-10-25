@@ -1,1 +1,1 @@
-# AG2
+# Repositório para a disciplina de AG2
