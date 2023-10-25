@@ -59,4 +59,4 @@ class_predict = perceptron.predict(confere_df)
 if class_predict == 1:
     print('Vitória de x')
 else:
-    print('Derrota de x')
+    print('Empate ou derrota de x')
