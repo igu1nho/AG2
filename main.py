@@ -51,16 +51,12 @@ pos7 = int(input('Entre com o valor de 3:1 (-1/0/1): '))
 pos8 = int(input('Entre com o valor de 3:2 (-1/0/1): '))
 pos9 = int(input('Entre com o valor de 3:3 (-1/0/1): '))
 
-confere = {'1':[pos1],'2':[pos2],'3':[pos3],'4':[pos4],'5':[pos5],'6':[pos6],'7':[pos7],'8':[pos8],'9':[pos9]}
-confere = pd.read_csv(confere, delimiter=',')
+confere = {'1': [pos1], '2': [pos2], '3': [pos3], '4': [pos4], '5': [pos5], '6': [pos6], '7': [pos7], '8': [pos8], '9': [pos9]}
+confere_df = pd.DataFrame(confere)
 
-print(confere)
-
-'''
-class_predict = perceptron.predict(confere)
+class_predict = perceptron.predict(confere_df)
 
 if class_predict == 1:
     print('Vitória de x')
 else:
     print('Derrota de x')
-'''
