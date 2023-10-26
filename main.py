@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import Perceptron
 from sklearn.metrics import accuracy_score
@@ -40,21 +41,24 @@ precisao = accuracy_score(y_test,y_predc)
 
 print('Precisão:', precisao)
 
+# Função para validar a entrada do usuário
+def is_valid_input(confere_df):
+    return data[linha].apply(tuple, axis=1).isin([tuple(confere_df.values[0])]).any()
+
 # Entrada de dados
-pos1 = int(input('Entre com o valor de 1:1 (-1/0/1): '))
-pos2 = int(input('Entre com o valor de 1:2 (-1/0/1): '))
-pos3 = int(input('Entre com o valor de 1:3 (-1/0/1): '))
-pos4 = int(input('Entre com o valor de 2:1 (-1/0/1): '))
-pos5 = int(input('Entre com o valor de 2:2 (-1/0/1): '))
-pos6 = int(input('Entre com o valor de 2:3 (-1/0/1): '))
-pos7 = int(input('Entre com o valor de 3:1 (-1/0/1): '))
-pos8 = int(input('Entre com o valor de 3:2 (-1/0/1): '))
-pos9 = int(input('Entre com o valor de 3:3 (-1/0/1): '))
+while True:
+    confere = {}
+    for i in range(1, 10):
+        posicao = int(input(f'Entre com o valor para a posição {i} (-1/0/1): '))
+        confere[str(i)] = [posicao]
 
-confere = {'1': [pos1], '2': [pos2], '3': [pos3], '4': [pos4], '5': [pos5], '6': [pos6], '7': [pos7], '8': [pos8], '9': [pos9]}
-confere_df = pd.DataFrame(confere)
+    if is_valid_input(pd.DataFrame(confere)):
+        break
+    else:
+        print("Os valores digitados não representam uma possibilidade de um jogo da velha convencional."
+              "\n" "Digite uma combinação válida.")
 
-class_predict = perceptron.predict(confere_df)
+class_predict = perceptron.predict(pd.DataFrame(confere))
 
 if class_predict == 1:
     print('Vitória de x')
