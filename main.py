@@ -57,6 +57,7 @@ while True:
         print("Os valores digitados não representam uma possibilidade de um jogo da velha convencional."
               "\n" "Digite uma combinação válida.")
 
+#Prevendo o valor entrado com algumas das possibilidades do DataFrame dado.
 class_predict = perceptron.predict(pd.DataFrame(confere))
 
 if class_predict == 1:
