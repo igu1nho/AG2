@@ -33,7 +33,7 @@ X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_
 perceptron = Perceptron(tol=1e-3, random_state=0)
 perceptron.fit(X_train,y_train.values.ravel())
 
-#Calculado a predicção
+# Calculado a predicção
 y_predc = perceptron.predict(X_test)
 
 precisao = accuracy_score(y_test,y_predc)
