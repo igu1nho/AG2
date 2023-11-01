@@ -3,7 +3,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import Perceptron
 from sklearn.metrics import accuracy_score
 
-# Use a função read_csv do Pandas para ler o arquivo CSV em um DataFrame.
+# Usando a função read_csv do Pandas para ler o arquivo CSV, pelo DataFrame dado.
 data = pd.read_csv('tic-tac-toe.csv', delimiter=',')
 
 # Substituição de valores em uma coluna específica do DataFrame.
