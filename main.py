@@ -6,7 +6,7 @@ from sklearn.metrics import accuracy_score
 # Use a função read_csv do Pandas para ler o arquivo CSV em um DataFrame.
 data = pd.read_csv('tic-tac-toe.csv', delimiter=',')
 
-# Exemplo de substituição de valores em uma coluna específica do DataFrame.
+# Substituição de valores em uma coluna específica do DataFrame.
 mapeamento = {
     'o': -1,
     'b': 0,
@@ -17,23 +17,23 @@ mapeamento = {
 
 data.replace(mapeamento, inplace=True)
 
-# Imprimir o DataFrame resultante
+# Imprimindo o DataFrame resultante
 print(data)
 
-# Treinamento dos dados Pela Perceptron
+# Treinamento dos dados Pela rede Perceptron
 linha = ['1','2','3','4','5','6','7','8','9']
 coluna = ['resultado']
 
 x = data[linha]
 y = data[coluna]
 
-# Dividir o conjunto de dados em 80% treinamento e 20% teste
+# Dividindo o conjunto de dados em 80% para o treinamento e 20% para o teste
 X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=0)
 
 perceptron = Perceptron(tol=1e-3, random_state=0)
 perceptron.fit(X_train,y_train.values.ravel())
 
-#Calculo da predicção
+#Calculado a predicção
 y_predc = perceptron.predict(X_test)
 
 precisao = accuracy_score(y_test,y_predc)
@@ -57,7 +57,7 @@ while True:
         print("Os valores digitados não representam uma possibilidade de um jogo da velha convencional."
               "\n" "Digite uma combinação válida.")
 
-#Prevendo o valor entrado com algumas das possibilidades do DataFrame dado.
+# Disponibilizando o valor entrado, com algumas das possibilidades verificadas dentro do DataFrame.
 class_predict = perceptron.predict(pd.DataFrame(confere))
 
 if class_predict == 1:
